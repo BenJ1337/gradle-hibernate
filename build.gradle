@@ -1,0 +1,25 @@
+wrapper {
+    gradleVersion = '7.0.2'
+    distributionUrl = distributionUrl.replace("bin", "all")
+}
+
+apply plugin: 'idea'
+//and standard one
+apply plugin: 'java'
+
+test {
+    useJUnitPlatform()
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
