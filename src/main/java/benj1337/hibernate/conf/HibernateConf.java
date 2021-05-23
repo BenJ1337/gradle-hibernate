@@ -1,4 +1,4 @@
-package benj1337.conf;
+package benj1337.hibernate.conf;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -51,7 +51,7 @@ public class HibernateConf {
     private Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        hibernateProperties.setProperty("hibernate.dialect", "benj1337.SQLiteDialect");
+        hibernateProperties.setProperty("hibernate.dialect", "benj1337.hibernate.SQLiteDialect");
         return hibernateProperties;
     }
 }

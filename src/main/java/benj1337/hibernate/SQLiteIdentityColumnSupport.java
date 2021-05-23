@@ -1,4 +1,4 @@
-package benj1337;
+package benj1337.hibernate;
 
 import org.hibernate.MappingException;
 import org.hibernate.dialect.identity.IdentityColumnSupportImpl;

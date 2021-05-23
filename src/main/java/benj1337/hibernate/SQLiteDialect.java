@@ -1,4 +1,4 @@
-package benj1337;
+package benj1337.hibernate;
 
 import org.hibernate.dialect.Dialect;
 import org.hibernate.dialect.function.SQLFunctionTemplate;
@@ -10,7 +10,7 @@ import org.hibernate.type.StringType;
 import java.sql.Types;
 
 /**
- * https://www.baeldung.com/spring-boot-sqlite *
+ * https://www.baeldung.com/spring-boot-sqlite
  */
 public class SQLiteDialect extends Dialect {
     public SQLiteDialect() {
