@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName"  value="org.sqlite.JDBC"></property>
+        <property name="url" value="jdbc:sqlite:memory:myDb?cache=shared"></property>
+        <property name="username" value="sa"></property>
+        <property name="password" value="sa"></property>
+    </bean>
+
+    <bean id="mysessionFactory"  class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+
+        <property name="mappingResources">
+            <list>
+                <value>employee.hbm.xml</value>
+            </list>
+        </property>
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">benj1337.SQLiteDialect</prop>
+                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+                <prop key="hibernate.show_sql">true</prop>
+
+            </props>
+        </property>
+    </bean>
+
+    <bean id="template" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory" ref="mysessionFactory"></property>
+    </bean>
+
+    <bean id="d" class="com.javatpoint.EmployeeDao">
+        <property name="template" ref="template"></property>
+    </bean>
+
+
+</beans>
